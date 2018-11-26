@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>KEXP Demo</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: sans-serif;
+			}
+
+			:root {
+				--ylw: #feac31;
+			}
+
+			body {
+				background-color: var(--ylw);
+			}
+
+			#spacer {
+				background-color: var(--ylm);
+				height: 75px;
+				transition: background-color 0.2s ease;
+			}
+
+			.job_title {
+				animation-name: change;
+				padding-right: 20px;
+				font-weight: bolder;
+				font-size: 7vw;
+				font-style: oblique;
+				text-align: right;
+				color: #ffffff;
+				background-color: var(--ylw);
+				z-index: 1;
+			}
+
+			.sticky.job_title {
+			  position: fixed;
+			  top: 0;
+			  right: 0;
+			  width: 100%;
+			  padding-top: 0;
+			}
+
+			.sticky + .content {
+			  padding-top: 205px;
+			}
+
+			div.rotating_job_titles_container {
+				margin: 0 -10px 0 0;
+				padding-right: 10px;
+				height: 8vw;
+				overflow: hidden;
+			}
+
+			ul.rotating_job_titles {
+				list-style: none;
+				animation-name: change;
+				animation-duration: 6s;
+				animation-iteration-count: infinite;
+			}
+
+			li.rotating_job_title {
+				white-space: nowrap;
+			}
+
+			div.static_job_title { 
+				margin-top: -20px;
+				height: 115px; 
+			}
+
+			@keyframes change {
+			  0%, 27%, 100% {
+				transform: translate3d(0, 0, 0);
+			  }
+			  33%, 60% {
+				transform: translate3d(0, -25%, 0);
+			  }
+			  66%, 94% {
+			    transform: translate3d(0, -50%, 0);
+			  }
+			  100% {
+			    transform: translate3d(0, -75%, 0);
+			  }
+			}
+
+			.white-box {
+			    margin: 0 0 5% 12%;
+			    padding: 10px 10px 40px;
+			    background: #fff;
+			    box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+			    border-radius: 0px;
+			}
+
+			.yellow-box {
+			    margin: 0 0 5% 12%;
+			    padding: 10px 10px 40px;	
+			}
+
+			#kexp_logo {
+				height: 90px;
+			}
+
+			.left-box {
+				width: 30%;
+				padding-top: 35px;
+				padding-left: 40px;
+			}
+			.content-title {
+				font-family: proxima nova; 
+				font-weight: bolder;
+				font-size: 36px;
+				line-height: 34px;
+				margin: 20px 0;
+				color: var(--ylw);
+			}
+
+			.content-summary {
+				font-family: proxima nova; 
+				font-size: 16px;
+				line-height: 18px;
+				color: #feac31;
+			}
+
+			.action_button {
+				height: 35px;
+			    border: 1px solid var(--ylw);
+			    border-radius: 30px;
+			    margin: 18px 44px 0 20px;
+			    transition-duration: 0.2s;
+			}
+
+			.action_button:hover {
+			    background-color: var(--ylw);
+			    color: #FFF;
+			}
+
+			.button_text {
+			    position: relative;
+			    top: 50%;
+			    transform: translate(0, -50%);
+			    text-align: center;
+			    vertical-align: middle;
+			    font-size: 20px;
+			    font-weight: bolder;
+			}
+
+			.right-box {
+				width: 60%;
+				vertical-align: top;
+			    text-align: center;
+			}
+			.right-box, .left-box {
+				display: inline-block;
+			}
+
+			.example_button {
+				display: inline-block;
+			    width: 100px;
+			    height: 100px;
+			    margin: 20px;
+			}
+
+			.example_button .button_text {
+				font-size: 48px;
+				color: #999;
+			}
+
+			.example_button.active .button_text{
+				color: #000;
+			}
+
+			.example_content {
+				display: none;
+			}
+
+			.example_content.active {
+				display: block;
+			}
+
+			.content_text {
+			    text-align: left;
+			    width: 40vw;
+			    margin: auto;
+			    padding: 0px 0 0 4vw;
+			}
+
+			.timeline-box {
+			    display: inline-block;
+			    width: 25vw;
+			    height: 10vw;
+			    padding: 12px;
+			    vertical-align: top;
+			    color: #FFF;
+			}
+
+			.yellow-box .content-title {
+				color: #FFF;
+				margin-bottom: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="spacer"></div>
+		<div class="job_title" id="header">
+			<div class="rotating_job_titles_container">
+				<ul class="rotating_job_titles">
+					<li class="rotating_job_title">COMMUNICATIONS</li>
+					<li class="rotating_job_title">TECHNICAL PROJECT</li>
+					<li class="rotating_job_title">MARKETING</li>
+					<li class="rotating_job_title">COMMUNICATIONS</li>
+				</ul>
+			</div>
+			<div class="static_job_title">
+				MANAGER
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="white-box" id="development_strategy">
+				<div class="left-box">
+					<img id="kexp_logo" src="KEXP_logo_black_HR.png" alt="KEXP logo">
+					<div class="content-title">
+						<p>DEVELOPMENT STRATEGY</p>
+					</div>
+					
+					<div class="content-summary">
+						<p>Capture donors through genuine, specific, and frequent communication that connects individuals to meaningful KEXP programming.</p> 
+						<div class="action_button">
+							<p class="button_text">DONATE</p>
+						</div>
+					</div>
+				</div>
+				<div class="right-box">
+					<div class="example_button_wrapper">
+						<div class="example_button active development_strategy" onclick="toggleActive(this, 'development_strategy')">
+							<p class="button_text">1</p>
+						</div>
+						<div class="example_button development_strategy" onclick="toggleActive(this, 'development_strategy')">
+							<p class="button_text">2</p>
+						</div>
+						<div class="example_button development_strategy" onclick="toggleActive(this, 'development_strategy')">
+							<p class="button_text">3</p>
+						</div>
+					</div>
+					<div class="example_content_wrapper">
+						<div class="example_content development_strategy active">
+							<h2>MESSAGING</h2><br />
+							<p class="content_text">Development communication is most effective when it is clearly aligned with a larger organizational strategy. This strategy affects all organizational planning, not just fundraising efforts. Development messaging should communicate the critical relationship between philanthropic support and the organization’s ability to meet its mission. All communication should represent the voice of the organization with specificity and authenticity.</p>
+						</div>
+						<div class="example_content development_strategy">
+							<h2>DONOR RECOGNITION</h2><br />
+							<p class="content_text">All donor recognition should seek to offer three important things to the donor audience: access, information, and recognition. All development communication should celebrate KEXP's relationship to a particular donor or business sponsor. Donor recognition is as much about acknowledging their contribution's impact on the success of the organization and its mission, as much as it is meant to express gratitude to the donor for their generosity.</p>
+						</div>
+						<div class="example_content development_strategy">
+							<h2>STEWARDSHIP BEST PRACTICES</h2><br />
+							<p class="content_text">Stewardship involves managing gifts as donors intend, and updating donors on the progress and impact of their gifts. A thoughtful onboarding campaign to welcome new donors keeps them plugged in and reminded of your mission. Regular transparent reports of where donations go reinforces the impact of their donations and increases their awareness of your ongoing needs. Actions of gratitude, like thank you messages, should reflect the organization's excitement, appreciation, and care for their support and partnership. Gratitude comes off as more genuine when actions are expeditious and focused on the donor, not the specific donation. Regularly send updates to keep donors informed and updated of organizational activities. Offer next steps for how they can remain involved. Doing so will help cultivate a long-term, mutually-beneficial relationship.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="yellow-box project-timeline">
+				<div class="content-title">
+					<p>PROJECT MANAGEMENT PROCEDURES</p>
+				</div>
+				<div class="timeline-box">
+					<h2>Project Launch</h2>
+					<p>
+						Assemble all necessary technical team members and key stakeholders to conduct the initial project kick-off meeting. Meet with the goal to define and initiate a project strategy.
+					</p>
+				</div>
+
+				<div class="timeline-box">
+					<h2>Requirements & Design</h2>
+					<p>
+						Define the scope of the project design deliverables with input from subject matter experts, business operations, and technical designers. 
+					</p>
+				</div>
+
+				<div class="timeline-box">
+					<h2>Planning</h2>
+					<p>
+						Establish key objectives and outline the development of work needed to achieve end goals. Schedule work for development and execution.
+					</p>
+				</div> 
+
+				<div class="timeline-box">
+					<h2>Execution</h2>
+					<p>
+						Conduct iterative development and collaborate daily with necessary team members responsible for key project deliverables through final deployment or publishing. Manage resources to maintain the project's timeline and budget for defined deliverables.
+					</p>
+				</div> 
+
+				<div class="timeline-box">
+					<h2>Deployment</h2>
+					<p>
+						Make a key event, communication, or deliverable accessible to users or target audience. A/B test communication or design to measure interest and engagement.
+					</p>
+				</div>
+
+				<div class="timeline-box">
+					<h2>Analysis & Review</h2>
+					<p>
+						Collect, visualize, and share data associated with implementations of the project deliverables to measure success or weaknesses of the design, communication, or tooling. Review findings with team members and stakeholders.
+					</p>
+				</div>
+			</div>
+
+			<div class="white-box communication_plan">
+				<div class="left-box">
+					<img id="kexp_logo" src="KEXP_logo_black_HR.png" alt="KEXP logo">
+					<div class="content-title">
+						<p>COMMUNICATION EXAMPLES</p>
+					</div>
+					
+					<div class="content-summary">
+						<p>Mock applications of annual report figures, a social media posting, and a donor thank you gift.</p> 
+						<div class="action_button">
+							<p class="button_text">OTHER WORK EXAMPLES</p>
+						</div>
+					</div>
+				</div>
+				<div class="right-box">
+					<div class="example_button_wrapper">
+						<div class="example_button active communication_plan" onclick="toggleActive(this, 'communication_plan')">
+							<p class="button_text">1</p>
+						</div>
+						<div class="example_button communication_plan" onclick="toggleActive(this, 'communication_plan')">
+							<p class="button_text">2</p>
+						</div>
+						<div class="example_button communication_plan" onclick="toggleActive(this, 'communication_plan')">
+							<p class="button_text">3</p>
+						</div>
+					</div>
+					<div class="example_content_wrapper">
+						<div class="example_content communication_plan active">
+							<img id="kexp_press_release" src="KEXP_report_by_the_numbers.png" width="520" alt="KEXP Yule Benefit">
+							<p class="content_text">Annual report "by the numbers" page.</p>
+						</div>
+						<div class="example_content communication_plan">
+							<img id="kexp_insta_post" src="KEXP_insta_TransistorIPA.png" width="520" alt="KEXP TransistorIPA">
+							<p class="content_text">Social media post.</p>
+						</div>
+						<div class="example_content communication_plan">
+							<img id="kexp_tshirt" src="KEXP-AmplifierTshirt.png" width="520" alt="KEXP thirt">
+							<p class="content_text">Amplifier member thank-you gift option.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function toggleActive(elem, aux_class) {
+			    buttons = document.getElementsByClassName(['example_button', aux_class].join(" ").trim());
+			    contents = document.getElementsByClassName(['example_content', aux_class].join(" ").trim());
+
+			    for (i = 0; i < buttons.length; i++) {
+			        buttons[i].classList.remove('active');
+			        contents[i].classList.remove('active');
+
+			        if (buttons[i] === elem) {
+			        	contents[i].classList.add('active')
+			        }
+			    }
+
+			    elem.classList.add('active');
+			}
+			function autorun()
+			{
+				// When the user scrolls the page, execute myFunction 
+				window.onscroll = function() {stickyHeader()};
+
+				// Get the header
+				var header = document.getElementById("header");
+				var spacer = document.getElementById("spacer");
+
+				// Get the offset position of the navbar
+				var sticky = header.offsetTop;
+
+				function stickyHeader() {
+				  if (window.pageYOffset > sticky) {
+				    header.classList.add("sticky");
+				    spacer.classList.add("sticky");
+				  } else {
+				    header.classList.remove("sticky");
+				    spacer.classList.remove("sticky");
+				  }
+				}
+			}
+			if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+			else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+			else window.onload = autorun;
+		</script>
+	</body>
+</html>
