@@ -134,14 +134,14 @@ div.static_job_title {
 
 .button_text {
     position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
     text-align: center;
     vertical-align: middle;
-    font-size: 20px;
+    font-size: 1.8vw;
     font-weight: bolder;
     text-decoration: none;
     color: inherit;
+    display: block;
+    margin: 1vw;
 }
 
 .right-box {
