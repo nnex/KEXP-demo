@@ -114,6 +114,7 @@ div.static_job_title {
 .content-summary {
 	font-family: proxima nova; 
 	font-size: 16px;
+	padding-right: 1vw;
 	line-height: 18px;
 	color: #feac31;
 }
