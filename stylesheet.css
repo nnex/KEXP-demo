@@ -135,12 +135,12 @@ div.static_job_title {
     position: relative;
     text-align: center;
     vertical-align: middle;
-    font-size: 1.8vw;
+    font-size: 1.65vw;
     font-weight: bolder;
     text-decoration: none;
     color: inherit;
     display: block;
-    margin: 1vw;
+    margin: 1vh;
 }
 
 .right-box {
