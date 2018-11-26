@@ -120,7 +120,6 @@ div.static_job_title {
 }
 
 .action_button {
-	height: 35px;
     border: 1px solid var(--ylw);
     border-radius: 30px;
     margin: 18px 44px 0 20px;
